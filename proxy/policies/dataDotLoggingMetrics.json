@@ -1,0 +1,10 @@
+{
+    "name": "DataDogLoggingMetrics",
+    "policy_content": "<ServiceCallout async=\"true\" continueOnError=\"true\" enabled=\"true\" xmlns=\"http://www.sap.com/apimgmt\">\n\t<Request>\n\t\t<Set>\n\t\t\t<Headers>\n\t\t\t\t<Header name=\"Content-Type\">application/json</Header>\n\t\t\t\t<Header name=\"DD-API-KEY\">{dataDog.APIKey}</Header>\n\t\t\t</Headers>\n\t\t\t<Payload contentType=\"application/json\" variablePrefix=\"#\"\n        variableSuffix=\"@\">{\n              \"ddsource\": \"SAPIM\",\n              \"ddtags\": \"env:#dataDog.Env@,type:metrics\",\n              \"service\": \"#preflow.name@\",\n              \"hostname\": \"#dataDog.Hostname@\",\n              \"message\":\"API Metrics /#request.verb@ #proxy.pathsuffix@\",\n              \"apitime\":#postflow.apitime@,\n              \"backendtime\":#postflow.backendtime@,\n              \"proxytime\":#postflow.proxytime@,\n              \"inicio\":\"#client.received.start.time@\",\n              \"fim\":\"#system.time@\",\n              \"product\":\"#product.name@\"\n            }</Payload> \n\t\t\t<Verb>POST</Verb>\n\t\t</Set>\n\t</Request>\n\t<!--Remove Response Element if you want Service Callout work Asynchronous--> \n\t<Response>splunk.response</Response>\n\t<Timeout>30000</Timeout>\n\t<HTTPTargetConnection>\n\t\t<URL>https://http-intake.logs.datadoghq.com/api/v2/logs</URL>\n\t</HTTPTargetConnection>\n</ServiceCallout>",
+    "type": "ServiceCallout",
+    "apiProxy": {
+        "__deferred": {
+            "uri": "https://br10apiportal.cfapps.br10.hana.ondemand.com:443/apiportal/api/1.0/Management.svc/Policies('D6227A95-77C2-4289-B29F-7F01D6A37895')/apiProxy"
+        }
+    }
+}

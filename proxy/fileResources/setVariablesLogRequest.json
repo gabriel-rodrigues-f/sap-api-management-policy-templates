@@ -1,0 +1,11 @@
+{
+    "content": "const bToken = context.getVariable(\"oauthV2.VerifyAccessToken.failed\");\nconst bAPIKey = context.getVariable(\"verifyapikey.VerifyAPIKey.failed\");\nconst bIPControl = context.getVariable(\"acl.ipControl.failed\");\nconst bJSONProtection = context.getVariable(\"jsonthreatprotection.mitigateJSONCodeInjection.failed\");\nconst bXMLProtection = context.getVariable(\"xmlattack.mitigateXMLCodeInjection.failed\");\nconst bQuota = context.getVariable(\"ratelimit.applyRateLimit.failed\");\nconst datadogApiKey = context.getVariable(\"request.header.APIKey\")\nconst path = context.getVariable(\"proxy.pathsuffix\")\nconst method = context.getVariable(\"request.verb\")\n\nvar req = context.getVariable('request.content')\nreq = req.split('\"').join(\"'\");\nreq = req.replace(/(\\r\\n|\\n|\\r)/gm, \"\");\ncontext.setVariable(\"preflow.content\",req);\n\nvar name_apiproxy = context.getVariable('apiproxy.name');\nname_apiproxy = name_apiproxy.toLowerCase();\ncontext.setVariable(\"preflow.name\",name_apiproxy);\n\nvar name_product = context.getVariable('verifyapikey.VerifyAPIKey.apiproduct.name');\nname_product = name_product.toLowerCase();\ncontext.setVariable(\"product.name\",name_product);\n\nvar status = 200;\nvar message = method + \" \" + path;\nvar ddstatus = \"success\";\nswitch(true){\n    case bToken:\n        status = 401;\n        break;\n    case bAPIKey:\n        status = 401;\n        break;\n    case bIPControl:\n        status = 403;\n        break;\n    case bJSONProtection:\n        status = 500;\n        break;\n    case bXMLProtection:\n        status = 500;\n        break;\n    case bQuota:\n        status = 429;\n        break;\n}\nif(status != 200){\n    ddstatus = \"error\";\n}\ncontext.setVariable(\"preflow.status\",status);\ncontext.setVariable(\"preflow.message\",message);\ncontext.setVariable(\"preflow.ddstatus\",ddstatus);\ncontext.setVariable(\"preflow.apikey\",datadogApiKey);",
+    "name": "setVariablesLogRequest",
+    "scope": "APIPROXY",
+    "type": "js",
+    "apiProxies": {
+        "__deferred": {
+            "uri": "https://br10apiportal.cfapps.br10.hana.ondemand.com:443/apiportal/api/1.0/Management.svc/FileResources('C4ACE707-C422-4965-B38F-944EF63A9D91')/apiProxies"
+        }
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "name": "return429error",
+    "policy_content": "<RaiseFault async=\"true\" continueOnError=\"false\" enabled=\"true\" xmlns=\"http://www.sap.com/apimgmt\">\n\t<!-- Defines the response message returned to the requesting client -->\n\t<FaultResponse>\n\t\t<Set>\n\t\t\t<!-- Sets or overwrites HTTP headers in the respone message -->\n\t\t\t<Headers>\n\t\t\t    <Header name=\"Retry-After\">{ratelimit.applyRateLimit.expiry.time}</Header>\n\t\t\t    </Headers>\n\t\t\t<Payload contentType=\"text/plain\">Your quota exceeded </Payload> \n\t\t\t<StatusCode>429</StatusCode>\n\t\t\t<!-- sets the reason phrase of the response -->\n\t\t\t<ReasonPhrase>Too many Requests</ReasonPhrase>\n\t\t</Set>\n\t</FaultResponse>\n\t<IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>\n</RaiseFault>",
+    "type": "RaiseFault",
+    "apiProxy": {
+        "__deferred": {
+            "uri": "https://br10apiportal.cfapps.br10.hana.ondemand.com:443/apiportal/api/1.0/Management.svc/Policies('205D398C-17E5-466C-A224-D9CE20D7B1D2')/apiProxy"
+        }
+    }
+}

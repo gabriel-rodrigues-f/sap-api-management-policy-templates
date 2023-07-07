@@ -1,0 +1,11 @@
+{
+    "content": "const clientini = context.getVariable(\"client.received.start.timestamp\");\nconst clientend = context.getVariable(\"client.received.end.timestamp\");\nconst finaltime = context.getVariable(\"system.timestamp\");\nconst sendtarget = context.getVariable(\"target.sent.start.timestamp\");\n\nvar apitime = finaltime - clientini;\nvar backendtime = finaltime - sendtarget;\nvar proxytime  = apitime - backendtime;\n\ncontext.setVariable(\"postflow.apitime\",apitime);\ncontext.setVariable(\"postflow.backendtime\",backendtime);\ncontext.setVariable(\"postflow.proxytime\",proxytime);",
+    "name": "setVariablesLogMetrics",
+    "scope": "APIPROXY",
+    "type": "js",
+    "apiProxies": {
+        "__deferred": {
+            "uri": "https://br10apiportal.cfapps.br10.hana.ondemand.com:443/apiportal/api/1.0/Management.svc/FileResources('5504FE10-D52C-4A0F-9513-20EC9E4C7B0B')/apiProxies"
+        }
+    }
+}

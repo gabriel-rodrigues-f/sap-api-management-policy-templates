@@ -1,0 +1,10 @@
+{
+    "name": "setVariablesLogResponse",
+    "policy_content": "<!-- this policy allows us to execute java script code during execution of an API Proxy -->\n<Javascript async=\"false\" continueOnError=\"true\" enabled=\"true\" timeLimit=\"200\" xmlns='http://www.sap.com/apimgmt'>\n\t<ResourceURL>jsc://setVariablesLogResponse.js</ResourceURL>\n</Javascript> ",
+    "type": "Javascript",
+    "apiProxy": {
+        "__deferred": {
+            "uri": "https://br10apiportal.cfapps.br10.hana.ondemand.com:443/apiportal/api/1.0/Management.svc/Policies('063E99FF-9090-448A-B3DD-7126A96B258A')/apiProxy"
+        }
+    }
+}

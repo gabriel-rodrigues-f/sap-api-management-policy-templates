@@ -1,0 +1,10 @@
+{
+    "name": "VerifyAPIKey",
+    "policy_content": " <!--Specify in the APIKey element where to look for the variable containing the api key--> \n<VerifyAPIKey async='true' continueOnError='false' enabled='true' \nxmlns='http://www.sap.com/apimgmt'>\n\t<APIKey ref='request.header.APIKey'/>\n</VerifyAPIKey>",
+    "type": "VerifyAPIKey",
+    "apiProxy": {
+        "__deferred": {
+            "uri": "https://br10apiportal.cfapps.br10.hana.ondemand.com:443/apiportal/api/1.0/Management.svc/Policies('36EB85E5-347D-4BD2-A478-9F7182E83DAB')/apiProxy"
+        }
+    }
+}

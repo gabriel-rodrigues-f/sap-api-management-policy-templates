@@ -1,0 +1,10 @@
+{
+    "name": "mitigateXMLCodeInjection",
+    "policy_content": "<XMLThreatProtection async=\"false\" continueOnError=\"false\" enabled=\"true\" xmlns=\"http://www.sap.com/apimgmt\">\n   <NameLimits>\n\t    <Element>500</Element>\n\t    <Attribute>500</Attribute>\n\t\t<NamespacePrefix>100</NamespacePrefix>\n\t\t<ProcessingInstructionTarget>100</ProcessingInstructionTarget>\n\t</NameLimits>\n\t<Source>request</Source>\n\t<StructureLimits>\n\t\t<NodeDepth>500</NodeDepth>\n\t\t<AttributeCountPerElement>5</AttributeCountPerElement>\n       <NamespaceCountPerElement>5</NamespaceCountPerElement>\n       <ChildCount  includeComment=\"true\" includeElement=\"true\" includeProcessingInstruction=\"true\" includeText=\"true\">500</ChildCount>\n\t</StructureLimits>\n\t<ValueLimits>\n\t\t<Text>500</Text>\n\t\t<Attribute>500</Attribute>\n\t\t<NamespaceURI>500</NamespaceURI>\n\t\t<Comment>500</Comment>\n\t\t<ProcessingInstructionData>100</ProcessingInstructionData>\n   </ValueLimits>\n</XMLThreatProtection>",
+    "type": "XMLThreatProtection",
+    "apiProxy": {
+        "__deferred": {
+            "uri": "https://br10apiportal.cfapps.br10.hana.ondemand.com:443/apiportal/api/1.0/Management.svc/Policies('8743FB8B-8BBF-48D5-9F98-E02CDBA4B10A')/apiProxy"
+        }
+    }
+}

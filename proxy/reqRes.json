@@ -1,0 +1,23 @@
+{
+    "eventStatus": "",
+    "domainProperties": {
+        "client": "",
+        "description": "",
+        "hostName": "",
+        "product": "",
+        "service": ""
+    },
+    "request": {
+        "apiKey": "",
+        "applicationName": "",
+        "method": "",
+        "body": ""
+    },
+    "response": {
+        "status": {
+            "code": "",
+            "description": ""
+        },
+        "body": ""
+    }
+}

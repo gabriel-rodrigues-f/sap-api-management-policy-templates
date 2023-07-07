@@ -1,0 +1,11 @@
+{
+    "content": "const iStatusCode = context.getVariable(\"response.status.code\");\nconst jContent = context.getVariable(\"response.content\");\n\nvar ddstatus = \"success\";\n\nvar payload = jContent.split('\"').join(\"'\");\npayload = payload.replace(/(\\r\\n|\\n|\\r)/gm, \"\");\n\n\nif(iStatusCode < 200 || iStatusCode > 299){\n    ddstatus = \"error\";\n    payload = jContent;\n}\n\ncontext.setVariable(\"postflow.ddstatus\",ddstatus);\ncontext.setVariable(\"postflow.payload\",payload);",
+    "name": "setVariablesLogResponse",
+    "scope": "APIPROXY",
+    "type": "js",
+    "apiProxies": {
+        "__deferred": {
+            "uri": "https://br10apiportal.cfapps.br10.hana.ondemand.com:443/apiportal/api/1.0/Management.svc/FileResources('6BADF6AA-0DAA-46E7-B631-5C3B936B07F2')/apiProxies"
+        }
+    }
+}

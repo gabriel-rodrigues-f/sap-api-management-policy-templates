@@ -1,0 +1,10 @@
+{
+    "name": "VerifyAccessToken",
+    "policy_content": "<OAuthV2 async=\"false\" continueOnError=\"false\" enabled=\"true\" xmlns=\"http://www.sap.com/apimgmt\">\n   <!-- By default, VerifyAccessToken expects the access token to be sent in an Authorization header. You can change that default using this element<AccessToken> -->\n   <!-- If you want to pass access token in an customer header \"access_token\": -->\n   <!-- <AccessToken>request.header.access_token</AccessToken> -->\n   <!-- If you want to pass access token in query param \"access_token\": -->\n   <!-- <AccessToken>request.queryparam.access_token</AccessToken> -->\n   <!-- this flag has to be set when you want to work with third-party access tokens -->\n   <ExternalAuthorization>false</ExternalAuthorization>\n   <!-- valid values are GenerateAccessToken, GenerateAccessTokenImplicitGrant, GenerateAuthorizationCode ,\n    RefreshAccessToken , VerifyAccessToken , InvalidateToken , ValidateToken  -->\n   <Operation>VerifyAccessToken</Operation>\n   <GenerateResponse enabled=\"true\"/><SupportedGrantTypes/>\n   <Tokens/>\n</OAuthV2>",
+    "type": "OAuthV2",
+    "apiProxy": {
+        "__deferred": {
+            "uri": "https://br10apiportal.cfapps.br10.hana.ondemand.com:443/apiportal/api/1.0/Management.svc/Policies('0079F942-A91F-4A44-92F3-BF39F5CA93C1')/apiProxy"
+        }
+    }
+}

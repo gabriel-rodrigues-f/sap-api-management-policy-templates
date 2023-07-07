@@ -1,0 +1,10 @@
+{
+    "name": "BasicAuthentication",
+    "policy_content": "<BasicAuthentication async='true' continueOnError='false' enabled='true' xmlns='http://www.sap.com/apimgmt'>\n \t<!-- Operation can be Encode or Decode -->\n\t<Operation>Encode</Operation>\n\t<IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>\n \t<!-- for Encode, User element can be used to dynamically populate the user value -->\n\t<User ref='private.basicAuth.username'></User>\n \t<!-- for Encode, Password element can be used to dynamically populate the password value -->\n\t<Password ref='private.basicAuth.password'></Password>\n \t<!-- Source is used to retrieve the encoded value of username and password. This should not be used if the operation is Encode-->\n \t<!-- <Source>request.header.Authorization</Source> -->\n \t<!-- Assign to is used to assign the encoded value of username and password to a variable. This should not be used if the operation is Decode -->\n\t<AssignTo createNew=\"true\">request.header.Authorization</AssignTo>\n</BasicAuthentication>",
+    "type": "BasicAuth",
+    "apiProxy": {
+        "__deferred": {
+            "uri": "https://br10apiportal.cfapps.br10.hana.ondemand.com:443/apiportal/api/1.0/Management.svc/Policies('3F8FA6EA-A370-46D6-B47C-5DEA6966BDE4')/apiProxy"
+        }
+    }
+}

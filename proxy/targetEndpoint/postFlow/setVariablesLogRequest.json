@@ -1,0 +1,10 @@
+{
+    "name": "setVariablesLogRequest",
+    "policy_content": "<Javascript async=\"false\" continueOnError=\"true\" enabled=\"true\" timeLimit=\"200\" xmlns='http://www.sap.com/apimgmt'>\n\t<ResourceURL>jsc://setVariablesLogRequest.js</ResourceURL>\n</Javascript> ",
+    "type": "Javascript",
+    "apiProxy": {
+        "__deferred": {
+            "uri": "https://br10apiportal.cfapps.br10.hana.ondemand.com:443/apiportal/api/1.0/Management.svc/Policies('778C9A1E-8477-4A5C-85FC-E5E9C98D4663')/apiProxy"
+        }
+    }
+}

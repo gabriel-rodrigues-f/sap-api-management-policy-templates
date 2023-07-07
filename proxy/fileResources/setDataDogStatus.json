@@ -1,0 +1,11 @@
+{
+    "content": "const preFlowStatus = context.getVariable(\"preflow.status\");\nconst postFlowStatus = context.getVariable(\"postflow.status\");\nconst statusCode = context.getVariable(\"response.status.code\");\nvar ddStatus = '';\nvar description = '';\n\nif (preFlowStatus === \"error\") {\n    ddStatus = \"error\";\n    description = \"Error in preFlow\";\n} else if (postFlowStatus === \"error\" || statusCode < 200 || statusCode > 299) {\n    ddStatus = \"error\";\n    description = \"Error in postFlow\";\n} else {\n    ddStatus = \"success\";\n    description = \"success when running preflow and postflow\";\n}\n\ncontext.setVariable(\"postflow.ddstatus\", ddStatus);\ncontext.setVariable(\"postflow.dddescription\", description);",
+    "name": "setDataDogStatus",
+    "scope": "APIPROXY",
+    "type": "js",
+    "apiProxies": {
+        "__deferred": {
+            "uri": "https://br10apiportal.cfapps.br10.hana.ondemand.com:443/apiportal/api/1.0/Management.svc/FileResources('DB91B890-1012-4F9F-B48D-4B11E94619C3')/apiProxies"
+        }
+    }
+}

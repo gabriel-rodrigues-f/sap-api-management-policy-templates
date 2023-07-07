@@ -1,0 +1,10 @@
+{
+    "name": "applyRateLimit",
+    "policy_content": "<Quota async=\"false\" continueOnError=\"true\" enabled=\"true\" type=\"calendar\" xmlns=\"http://www.sap.com/apimgmt\">\n    <Identifier ref=\"verifyapikey.VerifyAPIKey.client_id\"/>\n\t<Allow countRef=\"verifyapikey.VerifyAPIKey.apiproduct.developer.quota.limit\"/>\n \t<Interval ref=\"verifyapikey.VerifyAPIKey.apiproduct.developer.quota.interval\"/>\n    <Distributed>true</Distributed>\n \t<StartTime>2015-2-11 12:00:00</StartTime>\n\t<Synchronous>true</Synchronous>\n \t<TimeUnit ref=\"verifyapikey.VerifyAPIKey.apiproduct.developer.quota.timeunit\"/>\n</Quota>",
+    "type": "Quota",
+    "apiProxy": {
+        "__deferred": {
+            "uri": "https://br10apiportal.cfapps.br10.hana.ondemand.com:443/apiportal/api/1.0/Management.svc/Policies('48313DC5-6F5E-4B41-B18A-BFB0BD3811CE')/apiProxy"
+        }
+    }
+}

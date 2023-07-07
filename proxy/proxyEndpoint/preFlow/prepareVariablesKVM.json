@@ -1,0 +1,10 @@
+{
+    "name": "prepareVariablesKVM",
+    "policy_content": "<!-- This policy can be used to create or modify the standard HTTP request and response messages -->\n<AssignMessage async=\"false\" continueOnError=\"false\" enabled=\"true\" xmlns='http://www.sap.com/apimgmt'>\n    <AssignVariable>\n        <Name>kvmKey.username</Name>\n        <Template>{request.header.APIKey}_USER</Template>\n    </AssignVariable>\n    \n    <AssignVariable>\n        <Name>kvmKey.password</Name>\n        <Template>{request.header.APIKey}_PASS</Template>\n    </AssignVariable>\n    \n\t<AssignVariable>\n        <Name>kvmKey.application</Name>\n        <Template>{request.header.APIKey}_APP</Template>\n    </AssignVariable>\n\t<IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>\n\t<AssignTo createNew=\"false\" type=\"request\"></AssignTo>\n</AssignMessage>",
+    "type": "AssignMessage",
+    "apiProxy": {
+        "__deferred": {
+            "uri": "https://br10apiportal.cfapps.br10.hana.ondemand.com:443/apiportal/api/1.0/Management.svc/Policies('87816675-9D98-4B95-9E9C-82989588AE0D')/apiProxy"
+        }
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "name": "defaultRaiseFaultPolicy",
+    "policy_content": "<RaiseFault async=\"false\" continueOnError=\"false\" enabled=\"true\" xmlns=\"http://www.sap.com/apimgmt\">\r\n\t<FaultResponse>\r\n\t\t<Set>\r\n\t\t\t<StatusCode>405</StatusCode>\r\n\t\t\t<ReasonPhrase>Method Not Allowed</ReasonPhrase>\r\n\t\t</Set>\r\n\t</FaultResponse>\r\n\t<IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>\r\n</RaiseFault>",
+    "type": "RaiseFault",
+    "apiProxy": {
+        "__deferred": {
+            "uri": "https://br10apiportal.cfapps.br10.hana.ondemand.com:443/apiportal/api/1.0/Management.svc/Policies('1ADBD30B-3D97-4BF7-B339-73CB4933B29A')/apiProxy"
+        }
+    }
+}

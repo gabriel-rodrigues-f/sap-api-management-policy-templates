@@ -1,0 +1,10 @@
+{
+    "name": "mitigateJSONCodeInjection",
+    "policy_content": "<JSONThreatProtection async=\"false\" continueOnError=\"false\" enabled=\"true\" xmlns=\"http://www.sap.com/apimgmt\">\n\t<ArrayElementCount>15000</ArrayElementCount>\n\t<ContainerDepth>15000</ContainerDepth>\n\t<ObjectEntryCount>15000</ObjectEntryCount>\n\t<ObjectEntryNameLength>15000</ObjectEntryNameLength>\n\t<Source>request</Source>\n\t<StringValueLength>15000</StringValueLength>\n</JSONThreatProtection>",
+    "type": "JSONThreatProtection",
+    "apiProxy": {
+        "__deferred": {
+            "uri": "https://br10apiportal.cfapps.br10.hana.ondemand.com:443/apiportal/api/1.0/Management.svc/Policies('85397F3E-8C12-4FC5-8DB6-CCAC865638E5')/apiProxy"
+        }
+    }
+}
