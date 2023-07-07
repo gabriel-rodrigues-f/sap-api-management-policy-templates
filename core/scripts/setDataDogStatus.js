@@ -1,20 +1,20 @@
-const preFlowStatus     = context.getVariable("preFlowDataDogEventStatus")
 const postFlowStatus    = context.getVariable("postFlowDataDogEventStatus")
-const targetEndpointResponseStatusCode        = context.getVariable("response.status.code")
+const targetEndpointStatusCode = context.getVariable("response.status.code")
 
-var datadogEventStatus = ''
-var datadogEventStatusDescription = ''
+var postFlowResponse    = context.getVariable("postFlowBody")
+var datadogEventStatus  = 'success'
+var statusCode          = context.targetResponse.status.code
+var statusMessage       = context.targetResponse.status.message
 
-if (preFlowStatus === "error") {
+if (
+    postFlowStatus === "error" ||
+    targetEndpointStatusCode < 200 ||
+    targetEndpointStatusCode > 299
+    ) {
     datadogEventStatus  = "error"
-    datadogEventStatusDescription   = "Error in preFlow"
-} else if (postFlowStatus === "error" || targetEndpointResponseStatusCode < 200 || targetEndpointResponseStatusCode > 299) {
-    datadogEventStatus  = "error"
-    datadogEventStatusDescription   = "Error in postFlow"
-} else {
-    datadogEventStatus  = "success"
-    datadogEventStatusDescription   = "success when running preflow and postflow"
 }
 
-context.setVariable("dataDogEventStatus"    ,datadogEventStatus)
-context.setVariable("postflowDatadogEventStatusDescription"  ,datadogEventStatusDescription)
+context.setVariable("targetEndpointStatusCode"      ,statusCode)
+context.setVariable("targetEndpointStatusMessage"   ,statusMessage)
+context.setVariable("dataDogEventStatus"        ,datadogEventStatus)
+context.setVariable("targetEndpointStatusCode"  ,targetEndpointStatusCode)

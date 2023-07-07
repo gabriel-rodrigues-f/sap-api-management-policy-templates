@@ -12,10 +12,9 @@
               "ddtags": "env:#datadogEnvironment@,type:request_response",
               "hostname": "#datadogHostName@",
               "service": "#proxyName@",
-              "client" : "#client.host@",
+              "client": "#client.host@",
               "status":"#dataDogEventStatus@",
               "product":"#productName@",
-              "description": "#postflowDatadogEventStatusDescription@",
               "request": {
                 "method":"#request.verb@",
                 "payload":"#preFlowBody@",
@@ -23,7 +22,11 @@
                 "applicationName":"#datadogApplication@"
               },
                 "response": {
-                  "payload":"#postFlowBody@"
+                  "payload":"#postFlowBody@",
+                  "status":{
+                    "code": "#targetEndpointStatusCode@",
+                    "text": "#targetEndpointStatusMessage@"
+                  }
               }
             }</Payload> 
 			<Verb>POST</Verb>
