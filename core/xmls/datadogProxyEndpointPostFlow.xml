@@ -1,0 +1,34 @@
+<ServiceCallout async="true" continueOnError="true" enabled="true" xmlns="http://www.sap.com/apimgmt">
+	<Request>
+		<Set>
+			<Headers>
+				<Header name="Content-Type">application/json</Header>
+				<Header name="DD-API-KEY">{datadogAPIKey}</Header>
+			</Headers>
+			<Payload contentType="application/json" variablePrefix="#"
+        variableSuffix="@">{
+              "ddsource": "SAPIM",
+              "message":"API Metrics /#request.verb@ #proxy.pathsuffix@",
+              "ddtags": "env:#datadogEnvironment@,type:metrics",
+			  "client" : "#client.host@",
+			  "service": "#proxyName@",
+              "hostname": "#datadogHostName@",
+              "product":"#productName@",
+              "metrics": {
+			  	"eventProcessingTime":#eventProcessingDuration@,
+              	"targetEndpointProcessingTime":#targetEndpointDuration@,
+              	"proxyEndpointProcessingTime":#proxyEndpointDuration@,
+              	"startTimestamp":"#client.received.start.time@",
+              	"endTimestamp":"#system.time@"
+			  }
+            }</Payload> 
+			<Verb>POST</Verb>
+		</Set>
+	</Request>
+	<!--Remove Response Element if you want Service Callout work Asynchronous--> 
+	<Response>splunk.response</Response>
+	<Timeout>30000</Timeout>
+	<HTTPTargetConnection>
+		<URL>https://http-intake.logs.datadoghq.com/api/v2/logs</URL>
+	</HTTPTargetConnection>
+</ServiceCallout>
